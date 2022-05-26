@@ -2,8 +2,11 @@
   "name": "nano-vue-vite",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
+    "test": "vite --mode test",
+    "prod": "vite --mode production",
     "build": "vue-tsc --noEmit && vite build",
+    "build:test": "vue-tsc --noEmit && vite build --mode test",
     "preview": "vite preview --port 5050",
     "typecheck": "vue-tsc --noEmit",
     "lint:lint-staged": "lint-staged",
@@ -12,6 +15,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.5.0",
+    "ant-design-vue": "^3.2.4",
     "axios": "^0.27.2",
     "dayjs": "^1.11.2",
     "pinia": "^2.0.13",
