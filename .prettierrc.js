@@ -11,11 +11,11 @@ module.exports = {
 	printWidth: 100, // 一行最多 100 字符
 	tabWidth: 2, // 使用 4 个空格缩进
 	semi: false, // 行尾需要有分号
-	singleQuote: true, // 使用单引号而不是双引号
-	useTabs: true, // 用制表符而不是空格缩进行
+	singleQuote: false, // 使用单引号而不是双引号
+	useTabs: false, // 用制表符而不是空格缩进行
 	quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
 	jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
-	trailingComma: 'none', // 末尾不需要逗号
+	trailingComma: false, // 末尾不需要逗号
 	bracketSpacing: true, // 大括号内的首尾需要空格
 	bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
 	arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
