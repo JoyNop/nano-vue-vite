@@ -15,7 +15,7 @@ module.exports = {
 	useTabs: false, // 用制表符而不是空格缩进行
 	quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
 	jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
-	trailingComma: false, // 末尾不需要逗号
+	trailingComma: "none", // 末尾不需要逗号
 	bracketSpacing: true, // 大括号内的首尾需要空格
 	bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
 	arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
