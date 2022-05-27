@@ -3,7 +3,7 @@
 import type { VNodeChild, PropType as VuePropType } from 'vue'
 
 declare global {
-	const __APP_INFO__: {
+	const    __APP_INFO__: {
 		pkg: {
 			name: string
 			version: string

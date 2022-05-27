@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import pkg from './package.json'
 import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
-import type { ConfigEnv } from 'vite'
+import type { ConfigEnv, UserConfigExport } from 'vite'
 import { wrapperEnv } from './config/utils'
 import { createVitePlugins } from './config/vite/plugin'
 import { createProxy } from './config/vite/proxy'
@@ -15,17 +15,17 @@ const __APP_INFO__ = {
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss')
 }
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }: ConfigEnv) => {
-  // console.log('command', command)
+
+
+export default ({ mode, command }: ConfigEnv): UserConfigExport => {
   const root = process.cwd() // 当前工作目录
   const isBuild = command === 'build' // 是否是构建 serve
   const env = loadEnv(mode, root) // 加载env环境
   // The boolean type read by loadEnv is a string. This function can be converted to boolean type
   const viteEnv = wrapperEnv(env)
-  // console.log('viteEnv', viteEnv)
-
   const { VITE_PUBLIC_PATH, VITE_OUTPUT_DIR } = viteEnv
-  return {
+  // console.log('viteEnv', viteEnv)
+  return defineConfig({
     base: VITE_PUBLIC_PATH,
     root,
     plugins: createVitePlugins(viteEnv, isBuild),
@@ -39,9 +39,9 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
         scss: {
           charset: false, // 避免出现: build时的 @charset 必须在第一行的警告
           additionalData: `
-						@import "@/styles/mixin.scss";
-						@import "@/styles/variables.scss";
-					`
+              @import "@/styles/mixin.scss";
+              @import "@/styles/variables.scss";
+            `
         }
       }
     },
@@ -53,5 +53,11 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     define: {
       __APP_INFO__: JSON.stringify(__APP_INFO__)
     }
-  }
-})
+
+  })
+}
+
+
+
+
+
