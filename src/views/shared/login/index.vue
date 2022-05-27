@@ -13,7 +13,7 @@
       </div>
       <div class="login-r">
         <div class="login-form">
-          <div class="login-title">多邦爆破运营管理</div>
+          <div class="login-title">管理</div>
           <a-form
             :model="formState"
             name="basic"
@@ -95,8 +95,6 @@ const onFinish = async (values: any) => {
   console.log(import.meta.env);
   userStore.loginByUserName(toRaw(values));
   const a = userStore.getToken;
-  console.log(a, 2222);
-
   // console.log(import.meta.glob());
   // await api.userLoginByName(toRaw(values));
   // console.log(import.meta.glob);
