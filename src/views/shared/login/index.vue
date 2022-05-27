@@ -1,29 +1,17 @@
 <template>
   <div class="login-container">
+    <a-button @click="login">denglu</a-button>
     <div class="login-header"></div>
 
     <div class="login-card">
       <div class="login-l">
-        <img
-          src="../../../assets/login-bg.png"
-          alt=""
-          srcset=""
-          style="width: 60%"
-        />
+        <img src="../../../assets/login-bg.png" alt="" srcset="" style="width: 60%" />
       </div>
       <div class="login-r">
         <div class="login-form">
           <div class="login-title">管理</div>
-          <a-form
-            :model="formState"
-            name="basic"
-            autocomplete="off"
-            @finish="onFinish"
-          >
-            <a-form-item
-              name="phone"
-              :rules="[{ required: true, message: '请输入用户名' }]"
-            >
+          <a-form :model="formState" name="basic" autocomplete="off" @finish="onFinish">
+            <a-form-item name="phone" :rules="[{ required: true, message: '请输入用户名' }]">
               <a-input v-model:value="formState.phone">
                 <template #prefix>
                   <UserOutlined />
@@ -31,10 +19,7 @@
               </a-input>
             </a-form-item>
 
-            <a-form-item
-              name="password"
-              :rules="[{ required: true, message: '请输入密码' }]"
-            >
+            <a-form-item name="password" :rules="[{ required: true, message: '请输入密码' }]">
               <a-input-password v-model:value="formState.password">
                 <template #prefix>
                   <LockOutlined />
@@ -42,10 +27,7 @@
               </a-input-password>
             </a-form-item>
 
-            <a-button
-              style="width: 100%; border-radius: 6px"
-              type="primary"
-              html-type="submit"
+            <a-button style="width: 100%; border-radius: 6px" type="primary" html-type="submit"
               >登录</a-button
             >
           </a-form>
@@ -55,10 +37,7 @@
     <div class="login-footer">
       <div>版权所有 Copyright ©山东大学 山东多邦汇德信息技术有限公司</div>
       <div>
-        <a
-          style="color: #999999"
-          href="http://beian.miit.gov.cn/"
-          target="_blank"
+        <a style="color: #999999" href="http://beian.miit.gov.cn/" target="_blank"
           >鲁ICP备19028873号-4</a
         >
       </div>
@@ -68,41 +47,50 @@
 </template>
 <script lang="ts">
 interface FormState {
-  phone: string;
-  password: string;
-  remember: boolean;
+  phone: string
+  password: string
+  remember: boolean
 }
 </script>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, toRaw } from "vue";
-import * as api from "@/api/account";
-import { useUserStore } from "@/store/modules/user";
-import { LockOutlined, BugOutlined, UserOutlined } from "@ant-design/icons-vue";
-const userStore = useUserStore();
-const core = ref();
+import { onMounted, reactive, ref, toRaw } from "vue"
+import * as api from "@/api/account"
+import { useUserStore } from "@/store/modules/user"
+import { LockOutlined, BugOutlined, UserOutlined } from "@ant-design/icons-vue"
+import { getAppEnvConfig } from "@/utils/env"
+import http from "@/utils/http"
+
+const userStore = useUserStore()
+const core = ref()
 const formState = reactive<FormState>({
   phone: "",
   password: "",
-  remember: true,
-});
+  remember: true
+})
 
-console.log(import.meta.env);
+console.log(import.meta.env)
 
+const login = () => {
+  getAppEnvConfig()
+  console.log("2333")
+
+  // http.get("/fallback/users")
+}
 const onFinish = async (values: any) => {
-  console.log("Success:", values);
+  console.log("Success:", values)
 
-  console.log(import.meta.env);
-  userStore.loginByUserName(toRaw(values));
-  const a = userStore.getToken;
+  console.log(import.meta.env)
+  userStore.loginByUserName(toRaw(values))
+  const a = userStore.getToken
   // console.log(import.meta.glob());
   // await api.userLoginByName(toRaw(values));
   // console.log(import.meta.glob);
-};
+}
 
 onMounted(() => {
-  core.value = import.meta.env.VUE_APP_BUILD_TIME || "测试版本";
-});
+  core.value = import.meta.env.VUE_APP_BUILD_TIME || "测试版本"
+})
 </script>
 
 <style lang="less">

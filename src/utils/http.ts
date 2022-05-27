@@ -90,9 +90,9 @@ http.interceptors.response.use(
 
       switch (status) {
         case 401:
-          const userState = useUserStore()
+          // const userState = useUserStore()
 
-          userState.userLogout()
+          // userState.userLogout()
 
           break
       }
