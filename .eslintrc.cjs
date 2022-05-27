@@ -1,5 +1,5 @@
 /* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution");
+require("@rushstack/eslint-patch/modern-module-resolution")
 
 module.exports = {
   root: true,
@@ -7,16 +7,17 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript/recommended",
-    "@vue/eslint-config-prettier",
+    "./.eslintrc-auto-import.json",
+    "@vue/eslint-config-prettier"
   ],
   env: {
-    "vue/setup-compiler-macros": true,
+    "vue/setup-compiler-macros": true
   },
   rules: {
     "prettier/prettier": "warn",
 
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "vue/multi-word-component-names": "off",
-  },
-};
+    "vue/multi-word-component-names": "off"
+  }
+}

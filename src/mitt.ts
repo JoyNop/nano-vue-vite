@@ -1,7 +1,7 @@
-import mitt from "mitt";
-import Emitter from "mitt";
+import mitt from "mitt"
+import Emitter from "mitt"
 
-const emitter = mitt();
+const emitter = mitt()
 
 export default {
   // @ts-ignore
@@ -11,5 +11,5 @@ export default {
   // @ts-ignore
   $off: (...args: any) => emitter.off(...args),
   // @ts-ignore
-  $emit: (...args: any) => emitter.emit(...args),
-};
+  $emit: (...args: any) => emitter.emit(...args)
+}

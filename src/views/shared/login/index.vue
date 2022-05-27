@@ -72,10 +72,10 @@ const formState = reactive<FormState>({
 console.log(import.meta.env)
 
 const login = () => {
-  getAppEnvConfig()
-  console.log("2333")
+  const a = getAppEnvConfig()
+  console.log(a)
 
-  // http.get("/fallback/users")
+  http.get("/users")
 }
 const onFinish = async (values: any) => {
   console.log("Success:", values)

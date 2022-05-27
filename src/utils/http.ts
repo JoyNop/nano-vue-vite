@@ -18,6 +18,7 @@ import { useUserStore } from "@/store/modules/user"
 // // import store from "@/store";
 import { message as Message } from "ant-design-vue"
 import { storage } from "./storage"
+import { getApiUrl } from "./api"
 
 // const handleCode = (code, msg) => {
 //   switch (code) {
@@ -38,7 +39,7 @@ import { storage } from "./storage"
 // };
 
 const http = axios.create({
-  baseURL: import.meta.env.VITE_GLOB_API_URL as string,
+  baseURL: getApiUrl(),
   timeout: 5000,
   withCredentials: false // send cookies when cross-domain requests
   // headers: {

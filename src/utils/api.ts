@@ -1,5 +1,12 @@
-const envMap: any = {}
+import { getAppEnvConfig } from "./env"
 
-// 根据环境引入不同配置
-export const config = envMap[import.meta.env.VITE_ENV].default
-console.log("根据环境引入不同配置", config)
+export const getApiUrl = () => {
+  const env = getAppEnvConfig()
+
+  let baseUrl = "/"
+  if (env.VITE_USE_PROXY === "false") {
+    baseUrl = env.VITE_USE_API
+  }
+
+  return baseUrl
+}
