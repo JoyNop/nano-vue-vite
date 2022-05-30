@@ -1,10 +1,11 @@
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from "vue-router"
 // import BaseRouterTransition from "@/layout/BaseLayout.vue";
 
 // import UserView from "@/views/operate/UserView.vue";
-import { BaseLayout } from "@/layout";
+import AboutView from "@/views/AboutView.vue"
+import { BaseLayout } from "@/layout"
 
-const routeName = "operate";
+const routeName = "operate"
 
 const routes: Array<any> = [
   {
@@ -14,7 +15,7 @@ const routes: Array<any> = [
     component: BaseLayout,
     meta: {
       title: "爆破运营",
-      icon: "build-outlined",
+      icon: "build-outlined"
     },
     children: [
       {
@@ -22,10 +23,10 @@ const routes: Array<any> = [
         name: `${routeName}-user`,
         meta: {
           title: "运营成员",
-          icon: "user-outlined",
+          icon: "user-outlined"
         },
-        component: <div>adsf</div>,
-      },
+        component: AboutView
+      }
       // {
       //   path: "log",
       //   name: `${routeName}-log`,
@@ -44,8 +45,8 @@ const routes: Array<any> = [
       //   },
       //   component: () => import("@/views/operate/ApkView.vue"),
       // },
-    ],
-  },
-];
+    ]
+  }
+]
 
-export default routes;
+export default routes

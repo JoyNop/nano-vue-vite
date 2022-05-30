@@ -7,15 +7,15 @@
  * @FilePath: /blast-web-2_x/src/router/index.ts
  */
 
-import type { App } from "vue";
-import type { RouteRecordRaw } from "vue-router";
-import { createRouter, createWebHistory } from "vue-router";
+import type { App } from "vue"
+import type { RouteRecordRaw } from "vue-router"
+import { createRouter, createWebHistory } from "vue-router"
 // import { createRouterGuards } from "./router-guards";
-import common from "@/router/common";
-import { bizRouteUse } from "@/router/biz";
+import common from "@/router/common"
+import { bizRouteUse } from "@/router/biz"
 // import control from "@/router/modules/control";
-import shared from "./modules/shared";
-import { errorRoutes, notFound } from "./modules/error";
+import shared from "./modules/shared"
+import { errorRoutes, notFound } from "./modules/error"
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -23,8 +23,8 @@ export const routes: Array<RouteRecordRaw> = [
     name: "Home",
     redirect: "/control/org",
     meta: {
-      title: "首页",
-    },
+      title: "首页"
+    }
   },
   // {
   //   path: "/user",
@@ -39,17 +39,17 @@ export const routes: Array<RouteRecordRaw> = [
   ...bizRouteUse,
   ...shared,
   errorRoutes,
-  notFound,
-];
+  notFound
+]
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
   strict: true,
-  scrollBehavior: () => ({ left: 0, top: 0 }),
-});
+  scrollBehavior: () => ({ left: 0, top: 0 })
+})
 export function setupRouter(app: App<Element>) {
-  app.use(router);
+  app.use(router)
   // 创建路由守卫
 }
-export default router;
+export default router

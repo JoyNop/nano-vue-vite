@@ -6,7 +6,7 @@
  * @Description: file content
  * @FilePath: /blast-web-2_x/src/router/modules/shared.ts
  */
-import type { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from "vue-router"
 
 /**
  * 不需要授权就可以访问的页面
@@ -16,11 +16,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/login",
     name: "login",
     meta: {
-      title: "登录",
+      title: "登录"
     },
 
-    component: () =>
-      import(/* webpackChunkName: "login" */ "@/views/shared/login/index.vue"),
+    component: () => import(/* webpackChunkName: "login" */ "@/views/shared/login/index.vue")
   },
 
   // {
@@ -32,11 +31,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/forgot",
     name: "forgot",
-    component: () =>
-      import(
-        /* webpackChunkName: "forgot" */ "@/views/shared/forgot/forgot.vue"
-      ),
-  },
-];
+    component: () => import(/* webpackChunkName: "forgot" */ "@/views/shared/forgot/forgot.vue")
+  }
+]
 
-export default routes;
+export default routes

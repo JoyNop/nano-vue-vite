@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from "vue-router";
 // import OrgView from "@/views/control/OrgView.vue";
 // import UserView from "@/views/control/UserView.vue";
 import { BaseLayout } from "@/layout";
+import AboutView from "@/views/AboutView.vue"
 
 const routeName = "control";
 
@@ -24,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
           title: "组织管理",
           icon: "bars-outlined",
         },
-        component: <div>adsf</div>,
+        component:AboutView,
       },
       {
         path: "user",
@@ -33,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
           title: "用户管理",
           icon: "team-outlined",
         },
-        component: <div>adsf</div>,
+        component: AboutView,
       },
     ],
   },

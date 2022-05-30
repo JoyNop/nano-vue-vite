@@ -6,23 +6,21 @@
  * @Description: file content
  * @FilePath: /vue02/src/router/modules/error.ts
  */
-const routeName = "error";
+const routeName = "error"
 
 export const notFound = {
   path: "/:pathMatch(.*)*",
   name: "NotFound",
-  component: () =>
-    import(/* webpackChunkName: "404" */ "@/views/shared/error/404.vue"),
-};
+  component: () => import(/* webpackChunkName: "404" */ "@/views/shared/error/404.vue")
+}
 
 export const errorRoutes = {
   path: "/error",
   name: routeName,
-  component: () =>
-    import(/* webpackChunkName: "404" */ "@/views/shared/error/404.vue"),
+  component: () => import(/* webpackChunkName: "404" */ "@/views/shared/error/404.vue"),
   meta: {
     title: "错误页",
     icon: "EditOutlined",
-    hidden: true,
-  },
-};
+    hidden: true
+  }
+}
