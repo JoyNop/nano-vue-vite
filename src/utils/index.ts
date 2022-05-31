@@ -59,7 +59,7 @@ export function openWindow(
 }
 
 // dynamic use hook props
-export function getDynamicProps<T, U>(props: T): Partial<U> {
+export function getDynamicProps<T, U>(props: any): Partial<U> {
   const ret: Recordable = {}
 
   Object.keys(props).map((key) => {
@@ -84,7 +84,7 @@ export function getRawRoute(route: RouteLocationNormalized): RouteLocationNormal
   }
 }
 
-export const withInstall = <T>(component: T, alias?: string) => {
+export const withInstall = <T>(component: any, alias?: string) => {
   const comp = component as any
   comp.install = (app: App) => {
     app.component(comp.name || comp.displayName, component)
