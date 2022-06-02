@@ -1,11 +1,6 @@
 <template>
   <a-layout style="min-height: 100vh">
-    <a-layout-sider
-      v-model:collapsed="collapsed"
-      @collapse="onCollapse"
-      collapsible
-      :width="246"
-    >
+    <a-layout-sider v-model:collapsed="collapsed" @collapse="onCollapse" collapsible :width="246">
       <div class="logo">
         <span v-if="!collapsed">多邦爆破管理</span>
       </div>
@@ -14,17 +9,11 @@
     <a-layout>
       <a-layout-header class="layout-header">
         <div class="layout-r-tool">
-          <a-avatar
-            shape="square"
-            class="layout-avatar"
-            :src="useStore.user().userInfo?.avatar"
-          >
+          <a-avatar shape="square" class="layout-avatar" :src="useStore.user().userInfo?.avatar">
             {{ useStore.user().userInfo?.nickname }}
           </a-avatar>
 
-          <a-button type="text" title="退出登录" @click="userLogout">
-            <logout-outlined
-          /></a-button>
+          <a-button type="text" title="退出登录" @click="userLogout"> <logout-outlined /></a-button>
         </div>
       </a-layout-header>
       <a-layout-content style="margin: 16px">
@@ -33,9 +22,7 @@
           <a-breadcrumb-item>Bill</a-breadcrumb-item>
         </a-breadcrumb> -->
         <!-- <bread-crumb /> -->
-        <div
-          :style="{ padding: '24px', background: '#fff', minHeight: '360px' }"
-        >
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
           <router-view v-slot="{ Component }">
             <Transition name="zoom-fade" mode="out-in" appear>
               <component :is="Component" />
@@ -51,32 +38,32 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from "vue"
 // import BreadCrumb from "@/layout/BreadCrumb.vue";
-import BaseMenu from "@/layout/BaseMenu.vue";
-import { useAppStore } from "@/store/modules/app";
-import { storeToRefs } from "pinia";
-import { LogoutOutlined } from "@ant-design/icons-vue";
-import { useUserStore } from "@/store/modules/user";
-import { useStore } from "@/store";
-const appStore = useAppStore();
+import BaseMenu from "@/layout/BaseMenu.vue"
+import { useAppStore } from "@/store/modules/app"
+import { storeToRefs } from "pinia"
+import { LogoutOutlined } from "@ant-design/icons-vue"
+import { useUserStore } from "@/store/modules/user"
+import { useStore } from "@/store"
+const appStore = useAppStore()
 
-const { collapsed } = storeToRefs(appStore);
+const { collapsed } = storeToRefs(appStore)
 
 const onCollapse = (collapsed: boolean, type: string) => {
-  console.log(collapsed, type);
-};
+  console.log(collapsed, type)
+}
 
 const userLogout = () => {
-  console.log("title logout");
+  console.log("title logout")
 
-  useStore.user().userLogout();
-};
+  useStore.user().userLogout()
+}
 </script>
 
 <style lang="less" scoped>
 .layout-avatar {
-  background-color: @primary-color!important;
+  // background-color: @primary-color!important;
 }
 .layout-r-tool {
   display: flex;

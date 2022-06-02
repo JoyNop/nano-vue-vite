@@ -17,6 +17,7 @@
     "@vueuse/core": "^8.5.0",
     "ant-design-vue": "^3.2.4",
     "axios": "^0.27.2",
+    "consola": "^2.15.3",
     "dayjs": "^1.11.2",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
@@ -50,6 +51,7 @@
     "vite": "^2.9.5",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-style-import": "^2.0.0",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^0.34.7"
   }
 }

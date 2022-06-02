@@ -1,11 +1,12 @@
 import type { Plugin } from "vite"
 import vue from "@vitejs/plugin-vue"
 import vueJsx from "@vitejs/plugin-vue-jsx"
-// import { configStyleImportPlugin } from './styleImport'
+import { configStyleImportPlugin } from "./styleImport"
 // import { configMockPlugin } from './mock'
 import { configAutoImportPlugin } from "./autoImport"
 import { configAutoComponentsPlugin } from "./autocomponents"
 import { configCompressPlugin } from "./compress"
+import { configSvgImportPlugin } from "./svgImport"
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
     VITE_ENV,
@@ -24,8 +25,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
       // include: /\.(jsx|tsx)/
     })
   ]
+
+  vitePlugins.push(configSvgImportPlugin())
   // vite-plugin-style-import
-  // vitePlugins.push(configStyleImportPlugin(isBuild))
+  vitePlugins.push(configStyleImportPlugin(isBuild))
 
   // unplugin-vue-components
   vitePlugins.push(configAutoComponentsPlugin())
